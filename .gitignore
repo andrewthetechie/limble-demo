@@ -1,0 +1,10 @@
+**/charts/*
+
+*.terraform*
+*.terragrunt-cache*
+
+
+#vscode junk
+.vscode
+.DS_Store
+planfile

@@ -1,0 +1,26 @@
+controllers:
+  mariadb:
+    strategy: RollingUpdate
+    containers:
+      db:
+        image:
+          repository: lscr.io/linuxserver/mariadb
+          tag: latest
+          pullPolicy: IfNotPresent
+        env:
+          MYSQL_ROOT_PASSWORD: LOCALROOT1
+          MYSQL_DATABASE: wpdemo
+          MYSQL_USER: wpdemouser
+          MYSQL_PASSWORD: wpdemopass1
+
+service:
+  mariadb:
+    controller: mariadb
+    ports:
+      mysql:
+        port: 3306
+
+ingress:
+  wordpress:
+    enabled: false
+    hosts: []

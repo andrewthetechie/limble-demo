@@ -1,0 +1,18 @@
+controllers:
+  wordpress:
+    strategy: RollingUpdate
+    containers:
+      wordpress:
+        image:
+          repository: wordpress
+          tag: 6.6.2-php8.3-apache
+          pullPolicy: IfNotPresent
+        env:
+          TZ: Etc/UTC
+
+service:
+  wordpress:
+    controller: wordpress
+    ports:
+      http:
+        port: 80

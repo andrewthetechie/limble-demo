@@ -1,0 +1,7 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: wordpress-demo
+  labels:
+    app: wordpress-demo

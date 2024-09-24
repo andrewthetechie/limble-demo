@@ -1,0 +1,8 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: ingress-nginx
+  labels:
+    app: ingress-nginx
+    infra: "true"

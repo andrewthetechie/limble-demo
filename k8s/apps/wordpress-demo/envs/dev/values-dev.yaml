@@ -1,0 +1,22 @@
+controllers:
+  wordpress:
+    containers:
+      wordpress:
+        env:
+          WORDPRESS_DB_HOST: wordpress-demo-db.wordpress-demo.svc
+          WORDPRESS_DB_USER: wpdemouser
+          WORDPRESS_DB_PASSWORD: wpdemopass1
+          WORDPRESS_DB_NAME: wpdemo
+
+ingress:
+  wordpress:
+    enabled: true
+    annotations:
+    className: nginx
+    hosts:
+      - host: localhost
+        paths:
+          - path: /
+            service:
+              identifier: wordpress
+              port: http

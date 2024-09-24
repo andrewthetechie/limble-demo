@@ -1,0 +1,6 @@
+# this file contains default provider versions for terragrunt to generate into modules
+terraform_version: ">= 1.0"
+providers:
+  aws:
+    source: "hashicorp/aws"
+    version: "~> 5.0"

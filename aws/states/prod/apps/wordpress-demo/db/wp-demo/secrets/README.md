@@ -1,0 +1,1 @@
+Using parameter store for secrets so it can be read in by external secrets operator
