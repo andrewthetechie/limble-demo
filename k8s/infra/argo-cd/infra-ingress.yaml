@@ -1,0 +1,18 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aws-load-balancer-controller
+spec:
+  destination:
+    namespace: kube-system
+    server: "https://kubernetes.default.svc"
+  source:
+    path: k8s/infra/ingress/envs/prod
+    repoURL: git@github.com:andrewthetechie/limble-demo.git
+    targetRevision: HEAD
+  project: infra
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

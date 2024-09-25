@@ -9,7 +9,10 @@ resources:
   - ingress.yaml
   - project-apps.yaml
   - project-infra.yaml
-  - app-argocd.yaml
+  - infra-argocd.yaml
+  - infra-ingress.yaml
+  - infra-external-secrets.yaml
+  - app-wordpress-demo.yaml
 patches:
   - path: configmap.yaml
 
