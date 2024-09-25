@@ -50,4 +50,29 @@ Prod overlay is for deployment to prod. Instead of using mysql in cluster, uses 
 
 ## k8s/infra
 
-manifests for kubernetes "infrastructure" services. These are applied manually by the admin for now. In a real prod, argocd setup would be automated and then everything would be managed by argocd after that point. 
+manifests for kubernetes "infrastructure" services. 
+
+argocd - used for CD of k8s manifests
+external-secrets - used to read secrets from AWS into k8s secrets
+ingress - sets up ingress controllers. 
+    ingress-nginx in dev
+    aws load balancer controller in prod
+
+
+## aws/shared
+
+Shared resources used in terragrunt. Right now, just templating and providers config
+
+## aws/states
+
+Terragrunt states for spinning up AWS infra. 
+
+## aws/states/apps
+
+App infra. Right now only the wordpress-demo app and it only has a db
+
+## aws/states/base
+
+The "base" requirements for the app. A k8s cluster, VPC, some security groups, etc. Ideally, these resources would be shared by many apps in a multi-tenant enviornment.
+
+
