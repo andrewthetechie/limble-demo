@@ -7,6 +7,6 @@ metadata:
     app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
 data:
-  kustomize.buildOptions: --enable-helm
+  kustomize.buildOptions: --enable-helm --load-restrictor LoadRestrictionsNone
   url: https://argocd.limbledemo.herrington.network
   application.resourceTrackingMethod: annotation
