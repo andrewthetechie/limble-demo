@@ -44,6 +44,14 @@ inputs = {
     major_engine_version = "8.0"
     instance_class       = "db.t4g.large"
 
+    # this is a compromise for now to get a demo up and running
+    # in a real prod, use the master password management and then write a separate module that
+    # creates a new user+password and stores it in the secrets store
+    # the downside of this is that password clearly here in the repo + the password shows up in tf state
+    # for a demo, with the DB only available inside the VPC, this is an acceptable compromise
+    manage_master_user_password = false
+    password = "thisisnotagoodpassword12"
+
     allocated_storage = 20
 
     # in prod, I'd probably move creating service users to a separate module and use this users as the platform admin user and not share its password

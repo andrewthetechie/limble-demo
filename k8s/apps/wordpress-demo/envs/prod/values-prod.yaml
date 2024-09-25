@@ -1,0 +1,30 @@
+controllers:
+  wordpress:
+    strategy: RollingUpdate
+    containers:
+      wordpress:
+        envFrom:
+          - secretRef:
+              name: db-wp-demo
+
+ingress:
+  wordpress:
+    enabled: true
+    annotations:
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+      alb.ingress.kubernetes.io/ssl-redirect: "443"
+      alb.ingress.kubernetes.io/backend-protocol: HTTP
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/target-type: "ip"
+    className: alb
+    hosts:
+      - host: wpdemo.limbledemo.herrington.network
+        paths:
+          - path: /
+            service:
+              identifier: wordpress
+              port: http
+    tls:
+      - secretName: wpdemo
+        hosts:
+          - wpdemo.limbledemo.herrington.network
