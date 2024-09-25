@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: readonly-binding
+subjects:
+  - kind: User
+    name: readonly # this matches the readonly iam user
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: eks-read-only
+  apiGroup: rbac.authorization.k8s.io
